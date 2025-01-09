@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wasawat Boonporn - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c63ff;
+            --secondary: #f5f3ff;
+            --accent: #8b5cf6;
+            --background: #f8fafc;
+            --text: #334155;
+            --text-light: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 2.5em;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5em;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+            color: var(--text-light);
+        }
+
+        /* Skills Section */
+        .skills-section {
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(108, 99, 255, 0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin: 0.5rem 0;
+            color: var(--text-light);
+        }
+
+
+        .gallery-container {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .gallery {
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(108, 99, 255, 0.1);
+            height: 450px;
+            align-items: center;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            flex-shrink: 0;
+            transition: transform 0.4s ease;
+            cursor: zoom-in;
+            position: absolute;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 100;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(108, 99, 255, 0.1);
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .prev {
+            left: 15px;
+        }
+
+        .next {
+            right: 15px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(108, 99, 255, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2em;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: var(--secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8em;
+            color: var(--primary);
+        }
+
+        .view-project-btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .view-project-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Fullscreen Overlay */
+        .fullscreen-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            cursor: zoom-out;
+        }
+
+        .fullscreen-image {
+            max-width: 95%;
+            max-height: 95vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: contain;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+            background: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .certificate-description {
+            color: white;
+            margin: 10px 0 20px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="imguser\17a95061-8c58-4014-9277-79a46034bd3b.jpg" alt="Wasawat Boonporn" class="profile-image">
+            <div class="hero-content">
+                <h1 class="hero-title">WASAWAT BOONPORN</h1>
+                <h2 class="hero-subtitle">Bachelor of Science in Computer Science</h2>
+                <div class="contact-info">
+                    <p>📱 Phone: +6692-959-3931</p>
+                    <p>📧 Email: wasawat.boonporn@gmail.com</p>
+                    <p>📍 Address: 153 Soi Rangsit-Nakhon Nayok 4, Tambon Prachathipat, Amphoe Thanyaburi, Pathum Thani
+                        12130</p>
+                </div>
+                <p>I am currently studying in the field of Computer Science with a strong interest in technology and
+                    innovation. My background and experience include coding, AI model training, and web development. I
+                    am eager to apply my knowledge to real-world projects and continue learning in a diverse work
+                    environment.</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>C</li>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>Flutter</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <ul class="skill-list">
+                        <li>Vue.js</li>
+                        <li>Flask</li>
+                        <li>SQL</li>
+                        <li>HTML</li>
+                        <li>Figma</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <ul class="skill-list">
+                        <li>Machine Learning</li>
+                        <li>Deep Learning</li>
+                        <li>AI Model Training</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Critical Thinking</li>
+                        <li>Problem-Solving</li>
+                        <li>Adaptability</li>
+                        <li>Teamwork</li>
+                        <li>Decision Making</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section>
+            <h2 class="section-title">Certificates</h2>
+            <div class="gallery-container">
+                <div class="gallery" id="certificateGallery">
+                    <img src="img\0001.jpg" alt="Smart Chat Bot with Google Sheet"
+                        data-title="ได้ผ่านอบรมSmart Chat Bot with Google Sheet"
+                        data-description="เกียรติบัตรการอบรมเชิงปฏิบัติการด้านการวิเคราะห์ข้อมูล"
+                        onclick="openFullscreen(this)" />
+                    <img src="img\0002.jpg" alt="Data Management and Analytics Microsoft Excel"
+                        data-title="Data Management and Analytics Microsoft Excel"
+                        data-description="ผ่านการอบรมData Management and Analytics Microsoft Excel"
+                        onclick="openFullscreen(this)" />
+                    <img src="img\0003.jpg" alt="The Use of Onedrive and Microsoft Form Workflow Automation"
+                        data-title="The Use of Onedrive and Microsoft Form Workflow Automation"
+                        data-description="ผ่านการอบรมThe Use of Onedrive and Microsoft Form Workflow Automation"
+                        onclick="openFullscreen(this)" />
+                    <img src="img\0004.jpg" alt="APIs on Shelf Hackathon 2024" data-title="APIs on Shelf Hackathon 2024"
+                        data-description="เข้าร่วมAPIs on Shelf Hackathon" onclick="openFullscreen(this)" />
+                    <img src="img\0005.jpg" alt="APIs on Shelf Hackathon 2024" data-title="APIs on Shelf Hackathon 2024"
+                        data-description="ได้รางวัลชมเชย" onclick="openFullscreen(this)" />
+                    <img src="img\0006.jpg" alt="Mathlabe R Languages" data-title="Mathlabe R Languages"
+                        data-description="ผ่านการฝึกใช้ภาษาR" onclick="openFullscreen(this)" />
+                    <img src="img\0007.jpg" alt="Startup Development Program at Sriracha"
+                        data-title="Startup Development Program at Sriracha"
+                        data-description="ได้ รางวัลที่ 1 จากการพัฒนาสตาร์ทอัพที่มีศักยภาพเปลี่ยนแปลงตลาด"
+                        onclick="openFullscreen(this)" />
+                    <img src="img\0008.jpg" alt="EEC Hackathon (KUSRC & DEPA)" data-title="EEC Hackathon (KUSRC & DEPA)"
+                        data-description="Finalist (Top 10)" onclick="openFullscreen(this)" />
+                    <img src="img\0009.jpg" alt="Network Cabling of Engineer" data-title="Network Cabling of Engineer"
+                        data-description="เกียรติบัตรการอบรมเชิงปฏิบัติการด้าน Network Cabling of Engineer"
+                        onclick="openFullscreen(this)" />
+                    <img src="img\0010.jpg" alt="Web Development" data-title="กีฬาวิทยากสัมพันธ์"
+                        data-description="รางวัลรองชนะเลิศอันดับ1 บาสเก็ตบอล" onclick="openFullscreen(this)" />
+                    <img src="img\0011.jpg" alt="ICDL Digital Challenge 2024 (ระดับประเทศ)"
+                        data-title="ICDL Digital Challenge 2024 (ระดับประเทศ)"
+                        data-description="ผ่านเข้ารอบICDL Digital Challenge 2024" onclick="openFullscreen(this)" />
+                </div>
+                <button class="prev" onclick="moveSlide(-1)">❮</button>
+                <button class="next" onclick="moveSlide(1)">❯</button>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="imgpj\bg_1.gif" alt="Project 1" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">ARCADE CENTER</h3>
+                        <p class="project-description">พัฒนาระบบรวมเกมARCADE ยุค 90s มารวมกัน มีสามเกมดังนี้ 1. Tetris
+                            2. Snake game 3. Ping Pong game</p>
+                        <div class="project-tags">
+                            <span class="tag">javaGUI</span>
+                            <span class="tag">AI Generate</span>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1K7mtgqKYQer5Ro8yTAPn89FyX0kmVVap?usp=sharing"
+                            class="view-project-btn">ดูรายละเอียด</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="imgpj\YubiTang.jpg" alt="Project 2" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">YubiTang</h3>
+                        <p class="project-description">พัฒนาเว็บแอปในการสั่งชาบูมีระบบสมัครเเละล็อกอิน
+                            เลือกเมนูเเละหยิบลงตะกร้าเเละสั่งสินค้า</p>
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">PosgreSQL</span>
+                            <span class="tag">Restful Api</span>
+                            <span class="tag">Website</span>
+                        </div>
+                        <a href="https://github.com/IsNName/YubiTang" class="view-project-btn">ดูรายละเอียด</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="imgpj\Ex_az.gif" alt="Project 3" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Alzheimer's Prevention Project</h3>
+                        <p class="project-description">พัฒนาเว็บแอปพลิเคชันการออกกำลังกายเพื่อป้องกันโรคอัลไซเมอร์
+                            โดยใช้ Mediapipe สำหรับการตรวจจับการเคลื่อนไหวของร่างกายและการวิเคราะห์อารมณ์ผ่าน Machine
+                            Learning</p>
+                        <div class="project-tags">
+                            <span class="tag">Flask</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Mediapipe</span>
+                            <span class="tag">Wed App</span>
+                        </div>
+                        <a href="https://github.com/itzdeenzxx/Alzheimer_detection"
+                            class="view-project-btn">ดูรายละเอียด</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="imgpj\Screenshot 2025-01-08 234824.jpg" alt="Project 4" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Fruit Classification</h3>
+                        <p class="project-description">สร้างโมเดล Machine Learning ด้วย Convolutional Neural Networks
+                            (CNN) เพื่อจำแนกภาพผลไม้</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">ML&DL</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">AI Model</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <a href="https://github.com/IsNName/Fruit_Classification"
+                            class="view-project-btn">ดูรายละเอียด</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="imgpj\472234664_921477503503013_2688974251234533341_n.png" alt="Project 5"
+                        class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Sense Vision Assistant</h3>
+                        <p class="project-description">พัฒนาเว็บแอป
+                            ที่ช่วยเป็นเพื่อนเเละคอยช่วยเหลือคนตาบอดเเละยังคอยเป็นเพื่อนที่รู้ใจของคุณ</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">API</span>
+                            <span class="tag">Fast API</span>
+                            <span class="tag">Web App</span>
+                        </div>
+                        <a href="https://github.com/itzdeenzxx/aiforthai_blindeyes"
+                            class="view-project-btn">ดูรายละเอียด</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Fullscreen Overlay -->
+        <div class="fullscreen-overlay" id="fullscreenOverlay" onclick="closeFullscreen()">
+            <div class="close-button" onclick="closeFullscreen()">×</div>
+            <div class="certificate-info">
+                <h3 id="certificateTitle"></h3>
+                <p id="certificateDescription" class="certificate-description"></p>
+                <img class="fullscreen-image" id="fullscreenImage" src="" alt="Full-screen certificate" />
+            </div>
+        </div>
+        <script>
+            let currentIndex = 0;
+            const gallery = document.getElementById('certificateGallery');
+            const slides = document.querySelectorAll('.gallery img');
+
+            function moveSlide(direction) {
+                currentIndex += direction;
+                if (currentIndex < 0) currentIndex = slides.length - 1;
+                if (currentIndex >= slides.length) currentIndex = 0;
+
+                slides.forEach((slide, index) => {
+                    slide.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
+                });
+            }
+
+            slides.forEach((slide, index) => {
+                slide.style.transform = `translateX(${index * 100}%)`;
+                slide.style.position = 'absolute';
+            });
+
+            function openFullscreen(img) {
+                const overlay = document.getElementById('fullscreenOverlay');
+                const fullscreenImg = document.getElementById('fullscreenImage');
+                const titleElement = document.getElementById('certificateTitle');
+                const descriptionElement = document.getElementById('certificateDescription');
+
+                overlay.style.display = 'block';
+                fullscreenImg.src = img.src;
+                titleElement.textContent = img.dataset.title;
+                descriptionElement.textContent = img.dataset.description;
+            }
+
+            function closeFullscreen() {
+                document.getElementById('fullscreenOverlay').style.display = 'none';
+            }
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeFullscreen();
+            });
+        </script>
+</body>
+
+</html>
