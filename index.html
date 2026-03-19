@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" data-theme="light" data-lang="both">
 
 <head>
     <!-- Favicon -->
@@ -18,6 +18,36 @@
             --background: #f8fafc;
             --text: #1f2937;
             --text-light: #4b5563;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --chip-bg: #ffffff;
+            --overlay-bg: rgba(0, 0, 0, 0.95);
+        }
+
+        html[data-theme="dark"] {
+            --primary: #60a5fa;
+            --secondary: #1e293b;
+            --accent: #fb923c;
+            --background: #0f172a;
+            --text: #e5e7eb;
+            --text-light: #cbd5e1;
+            --card-bg: #111827;
+            --border: #334155;
+            --chip-bg: #1f2937;
+            --overlay-bg: rgba(2, 6, 23, 0.96);
+        }
+
+        html[data-theme="sunset"] {
+            --primary: #0f766e;
+            --secondary: #ecfeff;
+            --accent: #ea580c;
+            --background: #fff7ed;
+            --text: #1f2937;
+            --text-light: #4b5563;
+            --card-bg: #ffffff;
+            --border: #fed7aa;
+            --chip-bg: #fffaf5;
+            --overlay-bg: rgba(28, 25, 23, 0.95);
         }
 
         * {
@@ -40,6 +70,37 @@
             max-width: 1140px;
             margin: 0 auto;
             padding: 2.2rem;
+        }
+
+        .top-controls {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text);
+            border-radius: 999px;
+            padding: 0.42rem 0.82rem;
+            cursor: pointer;
+            font: inherit;
+            font-size: 0.88rem;
+            transition: all 0.2s ease;
+        }
+
+        .control-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .control-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
         }
 
         /* Hero Section */
@@ -132,8 +193,8 @@
         }
 
         .detail-card {
-            background: #fff;
-            border: 1px solid #e2e8f0;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.2rem 1.35rem;
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
@@ -177,8 +238,8 @@
         }
 
         .award-list li {
-            background: #fff;
-            border: 1px solid #e2e8f0;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
             border-radius: 10px;
             padding: 0.9rem 1rem;
             color: var(--text);
@@ -199,11 +260,11 @@
         }
 
         .skill-category {
-            background: white;
+            background: var(--card-bg);
             padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border);
         }
 
         .skill-category h3 {
@@ -230,12 +291,12 @@
             position: relative;
             display: flex;
             overflow: hidden;
-            background: #fff;
+            background: var(--card-bg);
             box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
             height: 450px;
             align-items: center;
             border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border);
         }
 
         .gallery-counter {
@@ -305,12 +366,12 @@
         }
 
         .project-card {
-            background: #fff;
+            background: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
             transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border);
         }
 
         .project-card:hover {
@@ -382,7 +443,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
+            background-color: var(--overlay-bg);
             z-index: 1000;
             cursor: zoom-out;
         }
@@ -446,11 +507,48 @@
             margin: 10px 0 20px;
             font-size: 1.1em;
         }
+
+        .lang-sep {
+            opacity: 0.65;
+            padding: 0 0.35rem;
+        }
+
+        .lang-sep.break {
+            display: block;
+            height: 0.45rem;
+            padding: 0;
+            opacity: 0;
+        }
+
+        html[data-lang="th"] .lang-en,
+        html[data-lang="en"] .lang-th {
+            display: none;
+        }
+
+        html[data-lang="th"] .lang-sep,
+        html[data-lang="en"] .lang-sep {
+            display: none;
+        }
+
+        html[data-theme="dark"] .control-btn.active {
+            color: #0f172a;
+            background: #f8fafc;
+            border-color: #f8fafc;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <div class="top-controls" aria-label="Display controls">
+            <button class="control-btn" type="button" data-theme-btn="light">Light</button>
+            <button class="control-btn" type="button" data-theme-btn="dark">Dark</button>
+            <button class="control-btn" type="button" data-theme-btn="sunset">Sunset</button>
+            <button class="control-btn" type="button" data-theme-btn="auto">Auto</button>
+            <button class="control-btn" type="button" data-lang-btn="th">TH</button>
+            <button class="control-btn" type="button" data-lang-btn="en">EN</button>
+            <button class="control-btn" type="button" data-lang-btn="both">TH/EN</button>
+        </div>
         <!-- Hero Section -->
         <section class="hero">
             <img src="imguser/profile.jpg" alt="Wasawat Boonporn" class="profile-image">
@@ -605,56 +703,82 @@
                     <img src="img/smart-chatbot-google-sheet.jpg" alt="Smart Chat Bot with Google Sheet"
                         data-title="ได้ผ่านอบรมSmart Chat Bot with Google Sheet"
                         data-description="เกียรติบัตรการอบรมเชิงปฏิบัติการด้านการวิเคราะห์ข้อมูล"
+                        data-title-en="Smart Chat Bot with Google Sheet"
+                        data-description-en="Workshop certificate in data analytics and chatbot integration"
                         onclick="openFullscreen(this)" />
                     <img src="img/data-management-microsoft-excel.jpg" alt="Data Management and Analytics Microsoft Excel"
                         data-title="Data Management and Analytics Microsoft Excel"
                         data-description="ผ่านการอบรมData Management and Analytics Microsoft Excel"
+                        data-title-en="Data Management and Analytics - Microsoft Excel"
+                        data-description-en="Training certificate for data management and analytics with Microsoft Excel"
                         onclick="openFullscreen(this)" />
                     <img src="img/onedrive-microsoft-form-workflow.jpg" alt="The Use of OneDrive and Microsoft Form Workflow Automation"
                         data-title="The Use of OneDrive and Microsoft Form Workflow Automation"
                         data-description="ผ่านการอบรม The Use of OneDrive and Microsoft Form Workflow Automation"
+                        data-title-en="OneDrive and Microsoft Forms Workflow Automation"
+                        data-description-en="Certificate for workflow automation training using OneDrive and Microsoft Forms"
                         onclick="openFullscreen(this)" />
                     <img src="img/api-on-shelf-hackathon-participation.jpg" alt="APIs on Shelf Hackathon 2024" data-title="APIs on Shelf Hackathon 2024"
-                        data-description="เข้าร่วมAPIs on Shelf Hackathon" onclick="openFullscreen(this)" />
+                        data-description="เข้าร่วมAPIs on Shelf Hackathon" data-title-en="APIs on Shelf Hackathon 2024"
+                        data-description-en="Participation certificate for APIs on Shelf Hackathon" onclick="openFullscreen(this)" />
                     <img src="img/api-on-shelf-hackathon-honorable-mention.jpg" alt="APIs on Shelf Hackathon 2024" data-title="APIs on Shelf Hackathon 2024"
-                        data-description="ได้รางวัลชมเชย" onclick="openFullscreen(this)" />
+                        data-description="ได้รางวัลชมเชย" data-title-en="APIs on Shelf Hackathon 2024"
+                        data-description-en="Honorable Mention award certificate" onclick="openFullscreen(this)" />
                     <img src="img/matlab-r-languages-training.jpg" alt="MATLAB &amp; R Languages" data-title="MATLAB &amp; R Languages"
-                        data-description="ผ่านการฝึกใช้ภาษา R" onclick="openFullscreen(this)" />
+                        data-description="ผ่านการฝึกใช้ภาษา R" data-title-en="MATLAB & R Languages"
+                        data-description-en="Training certificate in MATLAB and R programming" onclick="openFullscreen(this)" />
                     <img src="img/startup-development-program-first-place.jpg" alt="Startup Development Program at Sriracha"
                         data-title="Startup Development Program at Sriracha"
                         data-description="ได้ รางวัลที่ 1 จากการพัฒนาสตาร์ทอัพที่มีศักยภาพเปลี่ยนแปลงตลาด"
+                        data-title-en="Startup Development Program at Sriracha"
+                        data-description-en="1st Place award for startup development with market-changing potential"
                         onclick="openFullscreen(this)" />
                     <img src="img/eec-hackathon-top10-finalist.jpg" alt="EEC Hackathon (KUSRC & DEPA)" data-title="EEC Hackathon (KUSRC & DEPA)"
-                        data-description="Finalist (Top 10)" onclick="openFullscreen(this)" />
+                        data-description="Finalist (Top 10)" data-title-en="EEC Hackathon (KUSRC & DEPA)"
+                        data-description-en="Finalist award (Top 10)" onclick="openFullscreen(this)" />
                     <img src="img/network-cabling-engineer-workshop.jpg" alt="Network Cabling of Engineer" data-title="Network Cabling of Engineer"
                         data-description="เกียรติบัตรการอบรมเชิงปฏิบัติการด้าน Network Cabling of Engineer"
+                        data-title-en="Network Cabling of Engineer"
+                        data-description-en="Workshop certificate in network cabling engineering"
                         onclick="openFullscreen(this)" />
                     <img src="img/science-sport-basketball-runner-up.jpg" alt="Web Development" data-title="กีฬาวิทยากสัมพันธ์"
-                        data-description="รางวัลรองชนะเลิศอันดับ1 บาสเก็ตบอล" onclick="openFullscreen(this)" />
+                        data-description="รางวัลรองชนะเลิศอันดับ1 บาสเก็ตบอล" data-title-en="Science Sports Event"
+                        data-description-en="1st Runner-up award in basketball" onclick="openFullscreen(this)" />
                     <img src="img/icdl-digital-challenge-2024.jpg" alt="ICDL Digital Challenge 2024 (ระดับประเทศ)"
                         data-title="ICDL Digital Challenge 2024 (ระดับประเทศ)"
-                        data-description="ผ่านเข้ารอบICDL Digital Challenge 2024" onclick="openFullscreen(this)" />
+                        data-description="ผ่านเข้ารอบICDL Digital Challenge 2024" data-title-en="ICDL Digital Challenge 2024 (National Level)"
+                        data-description-en="Qualified as finalist in ICDL Digital Challenge 2024" onclick="openFullscreen(this)" />
                     <img src="img/sci-faculty-recognition-award.jpg" alt="สร้างชื่อเสียงให้กับคณะวิทยาศาสตร์ ศรีราชา"
                         data-title="สร้างชื่อเสียงให้กับคณะวิทยาศาสตร์ ศรีราชา"
-                        data-description="เกียรติบัตรสร้างชื่อเสียงให้กับคณะวิทยาศาสตร์ ศรีราชา" onclick="openFullscreen(this)" />
+                        data-description="เกียรติบัตรสร้างชื่อเสียงให้กับคณะวิทยาศาสตร์ ศรีราชา" data-title-en="Faculty of Science Recognition Award"
+                        data-description-en="Recognition certificate for bringing distinction to the Faculty of Science, Sriracha" onclick="openFullscreen(this)" />
                     <img src="img/moral-hackathon-2024-finalist.jpg" alt="Moral Hackathon 2024 (ระดับประเทศ)"
                         data-title="Moral Hackathon 2024 (ระดับประเทศ)"
-                        data-description="ผ่านเข้ารอบ Moral Hackathon 2024" onclick="openFullscreen(this)" />
+                        data-description="ผ่านเข้ารอบ Moral Hackathon 2024" data-title-en="Moral Hackathon 2024 (National Level)"
+                        data-description-en="Finalist certificate for Moral Hackathon 2024" onclick="openFullscreen(this)" />
                     <img src="img/krungthai-financial-skills-certificate.jpg" alt="Kasetsart University - Krungthai Joint Certificate in Financial Skills Development"
                         data-title="Kasetsart University - Krungthai Joint Certificate in Financial Skills Development"
                         data-description="เข้าร่วมโครงการอบรมทักษะพึงประสงค์ของนิสิต สำหรับงานกลุ่มธุรกิจการเงิน"
+                        data-title-en="Kasetsart University - Krungthai Joint Financial Skills Certificate"
+                        data-description-en="Certificate for completing financial sector skill development training"
                         onclick="openFullscreen(this)" />
                     <img src="img/certificate-extra-01.jpg" alt="Additional Certificate 01"
                         data-title="Additional Certificate 01"
                         data-description="ใบเกียรติบัตรเพิ่มเติม 01"
+                        data-title-en="Additional Certificate 01"
+                        data-description-en="Additional certificate no. 01"
                         onclick="openFullscreen(this)" />
                     <img src="img/certificate-extra-02.jpg" alt="Additional Certificate 02"
                         data-title="Additional Certificate 02"
                         data-description="ใบเกียรติบัตรเพิ่มเติม 02"
+                        data-title-en="Additional Certificate 02"
+                        data-description-en="Additional certificate no. 02"
                         onclick="openFullscreen(this)" />
                     <img src="img/cpcup-2025-certificate.jpg" alt="CPCUP 2025 Certificate"
                         data-title="CPCUP 2025 Certificate"
                         data-description="Certificate CPCUP 2025"
+                        data-title-en="CPCUP 2025 Certificate"
+                        data-description-en="Certificate of participation/completion for CPCUP 2025"
                         onclick="openFullscreen(this)" />
                 </div>
                 <button class="prev" onclick="moveSlide(-1)">❮</button>
@@ -671,34 +795,37 @@
                     <img src="imgpj/arcade-center.gif" alt="Project 1" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">ARCADE CENTER</h3>
-                        <p class="project-description">แพลตฟอร์มรวมเกมอาร์เคดยุค 90s ได้แก่ Tetris, Snake และ Ping Pong</p>
+                        <p class="project-description">90s arcade game hub featuring Tetris, Snake, and Ping Pong
+                            <br>แพลตฟอร์มรวมเกมอาร์เคดยุค 90s ได้แก่ Tetris, Snake และ Ping Pong</p>
                         <div class="project-tags">
                             <span class="tag">javaGUI</span>
                             <span class="tag">AI Generate</span>
                         </div>
                         <a href="https://drive.google.com/drive/folders/1K7mtgqKYQer5Ro8yTAPn89FyX0kmVVap?usp=sharing"
-                            class="view-project-btn">ดูรายละเอียด</a>
+                            class="view-project-btn">View Details | ดูรายละเอียด</a>
                     </div>
                 </div>
                 <div class="project-card">
                     <img src="imgpj/yubitang.jpg" alt="Project 2" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">YubiTang</h3>
-                        <p class="project-description">เว็บแอปสั่งชาบูพร้อมระบบสมัครสมาชิก ล็อกอิน จัดการเมนู และตะกร้าสินค้า</p>
+                        <p class="project-description">Shabu ordering web app with registration, login, menu management, and shopping cart
+                            <br>เว็บแอปสั่งชาบูพร้อมระบบสมัครสมาชิก ล็อกอิน จัดการเมนู และตะกร้าสินค้า</p>
                         <div class="project-tags">
                             <span class="tag">Vue.js</span>
                             <span class="tag">PostgreSQL</span>
                             <span class="tag">RESTful API</span>
                             <span class="tag">Website</span>
                         </div>
-                        <a href="https://github.com/IsNName/YubiTang" class="view-project-btn">ดูรายละเอียด</a>
+                        <a href="https://github.com/IsNName/YubiTang" class="view-project-btn">View Details | ดูรายละเอียด</a>
                     </div>
                 </div>
                 <div class="project-card">
                     <img src="imgpj/alzheimers-prevention.gif" alt="Project 3" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">Alzheimer's Prevention Project</h3>
-                        <p class="project-description">เว็บแอปออกกำลังกายเพื่อป้องกันอัลไซเมอร์ ใช้ MediaPipe และ Machine Learning วิเคราะห์การเคลื่อนไหว</p>
+                        <p class="project-description">Exercise web app for Alzheimer's prevention using MediaPipe and machine learning
+                            <br>เว็บแอปออกกำลังกายเพื่อป้องกันอัลไซเมอร์ ใช้ MediaPipe และ Machine Learning วิเคราะห์การเคลื่อนไหว</p>
                         <div class="project-tags">
                             <span class="tag">Flask</span>
                             <span class="tag">Python</span>
@@ -706,7 +833,7 @@
                             <span class="tag">Web App</span>
                         </div>
                         <a href="https://github.com/itzdeenzxx/Alzheimer_detection"
-                            class="view-project-btn">ดูรายละเอียด</a>
+                            class="view-project-btn">View Details | ดูรายละเอียด</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -723,7 +850,7 @@
                             <span class="tag">JavaScript</span>
                         </div>
                         <a href="https://github.com/IsNName/Fruit_Classification"
-                            class="view-project-btn">ดูรายละเอียด</a>
+                            class="view-project-btn">View Details | ดูรายละเอียด</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -740,35 +867,37 @@
                             <span class="tag">Web App</span>
                         </div>
                         <a href="https://github.com/itzdeenzxx/aiforthai_blindeyes"
-                            class="view-project-btn">ดูรายละเอียด</a>
+                            class="view-project-btn">View Details | ดูรายละเอียด</a>
                     </div>
                 </div>
                 <div class="project-card">
                     <img src="imgpj/ai-thailand-hackathon.jpg" alt="Project 6" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">AI Thailand Hackathon 2024</h3>
-                        <p class="project-description">ผลงานรางวัลชมเชย AI Thailand Hackathon 2024 เน้นการประยุกต์ AI เพื่อแก้ปัญหาใช้งานจริง</p>
+                        <p class="project-description">Honorable Mention project focusing on practical AI solutions in AI Thailand Hackathon 2024
+                            <br>ผลงานรางวัลชมเชย AI Thailand Hackathon 2024 เน้นการประยุกต์ AI เพื่อแก้ปัญหาใช้งานจริง</p>
                         <div class="project-tags">
                             <span class="tag">API</span>
                             <span class="tag">FastAPI</span>
                             <span class="tag">AI Thailand Hackathon 2024</span>
                         </div>
                         <a href="https://www.csi-kusrc.tech/-ai-thailand-hackathon-2024-ep2-ai-for-thai-api-on-shelf"
-                            class="view-project-btn">ดูรายละเอียด</a>
+                            class="view-project-btn">View Details | ดูรายละเอียด</a>
                     </div>
                 </div>
                 <div class="project-card">
                     <img src="imgpj/sci-achievement.jpg" alt="Project 7" class="project-image">
                     <div class="project-content">
-                        <h3 class="project-title">สร้างชื่อเสียงให้กับคณะวิทยาศาสตร์ ศรีราชา</h3>
-                        <p class="project-description">ได้รับรางวัลเชิดชูเกียรติในโอกาสครบรอบ 29 ปี คณะวิทยาศาสตร์ ศรีราชา</p>
+                        <h3 class="project-title">Faculty Recognition Award | สร้างชื่อเสียงให้กับคณะวิทยาศาสตร์ ศรีราชา</h3>
+                        <p class="project-description">Recognition award on the 29th anniversary of the Faculty of Science, Sriracha Campus
+                            <br>ได้รับรางวัลเชิดชูเกียรติในโอกาสครบรอบ 29 ปี คณะวิทยาศาสตร์ ศรีราชา</p>
                         <div class="project-tags">
-                            <span class="tag">22 มกราคม 2567</span>
-                            <span class="tag">ครบรอบ 29 ปี</span>
-                            <span class="tag">วันคล้ายวันสถาปนา</span>
+                            <span class="tag">22 Jan 2024 | 22 มกราคม 2567</span>
+                            <span class="tag">29th Anniversary | ครบรอบ 29 ปี</span>
+                            <span class="tag">Founding Day | วันคล้ายวันสถาปนา</span>
                         </div>
                         <a href="https://www.csi-kusrc.tech/csisrc-students-alumni-scisrc29thest"
-                            class="view-project-btn">ดูรายละเอียด</a>
+                            class="view-project-btn">View Details | ดูรายละเอียด</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -784,7 +913,7 @@
                             <span class="tag">30th Anniversary</span>
                             <span class="tag">Academic Achievement</span>
                         </div>
-                        <a href="https://www.csi-kusrc.tech/-copy1" class="view-project-btn">รายละเอียดเพิ่มเติม</a>
+                        <a href="https://www.csi-kusrc.tech/-copy1" class="view-project-btn">More Details | รายละเอียดเพิ่มเติม</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -802,7 +931,7 @@
                             <span class="tag">Bilingual (TH/EN)</span>
                             <span class="tag">Gamification</span>
                         </div>
-                        <a href="#" class="view-project-btn">รายละเอียดเพิ่มเติมเร็ว ๆ นี้</a>
+                        <a href="#" class="view-project-btn">More details soon | รายละเอียดเพิ่มเติมเร็ว ๆ นี้</a>
                     </div>
                 </div>
             </div>
@@ -822,6 +951,110 @@
             let currentIndex = 0;
             const gallery = document.getElementById('certificateGallery');
             const slides = document.querySelectorAll('.gallery img');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+            function resolveTheme(themeChoice) {
+                if (themeChoice === 'auto') {
+                    return prefersDark.matches ? 'dark' : 'light';
+                }
+                return themeChoice;
+            }
+
+            function markActiveButtons(themeChoice, lang) {
+                document.querySelectorAll('[data-theme-btn]').forEach((btn) => {
+                    btn.classList.toggle('active', btn.dataset.themeBtn === themeChoice);
+                });
+                document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
+                    btn.classList.toggle('active', btn.dataset.langBtn === lang);
+                });
+            }
+
+            function applyTheme(themeChoice) {
+                const actualTheme = resolveTheme(themeChoice);
+                document.documentElement.dataset.theme = actualTheme;
+                localStorage.setItem('portfolio-theme', themeChoice);
+                markActiveButtons(themeChoice, document.documentElement.dataset.lang || 'both');
+            }
+
+            function applyLanguage(lang) {
+                document.documentElement.dataset.lang = lang;
+                document.documentElement.lang = lang === 'en' ? 'en' : 'th';
+                localStorage.setItem('portfolio-lang', lang);
+                const currentThemeChoice = localStorage.getItem('portfolio-theme') || 'light';
+                markActiveButtons(currentThemeChoice, lang);
+            }
+
+            function splitBilingualText(htmlText) {
+                if (htmlText.includes(' | ')) {
+                    const parts = htmlText.split(' | ');
+                    if (parts.length >= 2) {
+                        return { en: parts[0].trim(), th: parts.slice(1).join(' | ').trim(), separator: 'pipe' };
+                    }
+                }
+
+                if (/<br\s*\/?>/i.test(htmlText)) {
+                    const parts = htmlText.split(/<br\s*\/?>/i).map((p) => p.trim()).filter(Boolean);
+                    if (parts.length >= 2) {
+                        const thaiPart = parts.find((p) => /[\u0E00-\u0E7F]/.test(p));
+                        const englishPart = parts.find((p) => !/[\u0E00-\u0E7F]/.test(p));
+                        if (thaiPart && englishPart) {
+                            return { en: englishPart, th: thaiPart, separator: 'break' };
+                        }
+                    }
+                }
+
+                return null;
+            }
+
+            function prepareBilingualNodes() {
+                const selectors = [
+                    'h2',
+                    '.hero-subtitle',
+                    '.hero-intro',
+                    '.contact-info p',
+                    '.detail-title h3',
+                    '.detail-period',
+                    '.detail-list li',
+                    '.project-description',
+                    '.project-title',
+                    '.view-project-btn',
+                    '.summary-chip',
+                    '.tag'
+                ].join(', ');
+
+                document.querySelectorAll(selectors).forEach((node) => {
+                    if (node.querySelector('.lang-en, .lang-th')) return;
+
+                    const split = splitBilingualText(node.innerHTML);
+                    if (!split) return;
+
+                    const sepClass = split.separator === 'break' ? 'lang-sep break' : 'lang-sep';
+                    const sepText = split.separator === 'break' ? '' : ' | ';
+                    node.innerHTML = `<span class="lang-en">${split.en}</span><span class="${sepClass}">${sepText}</span><span class="lang-th">${split.th}</span>`;
+                });
+            }
+
+            document.querySelectorAll('[data-theme-btn]').forEach((btn) => {
+                btn.addEventListener('click', () => applyTheme(btn.dataset.themeBtn));
+            });
+
+            document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
+                btn.addEventListener('click', () => applyLanguage(btn.dataset.langBtn));
+            });
+
+            prefersDark.addEventListener('change', () => {
+                const storedTheme = localStorage.getItem('portfolio-theme') || 'light';
+                if (storedTheme === 'auto') {
+                    applyTheme('auto');
+                }
+            });
+
+            prepareBilingualNodes();
+
+            const initialTheme = localStorage.getItem('portfolio-theme') || 'light';
+            const initialLang = localStorage.getItem('portfolio-lang') || 'both';
+            applyTheme(initialTheme);
+            applyLanguage(initialLang);
 
             function moveSlide(direction) {
                 currentIndex += direction;
@@ -854,11 +1087,26 @@
                 const fullscreenImg = document.getElementById('fullscreenImage');
                 const titleElement = document.getElementById('certificateTitle');
                 const descriptionElement = document.getElementById('certificateDescription');
+                const langMode = document.documentElement.dataset.lang || 'both';
+
+                const titleTH = img.dataset.title || img.alt;
+                const titleEN = img.dataset.titleEn || img.alt;
+                const descTH = img.dataset.description || '';
+                const descEN = img.dataset.descriptionEn || img.alt;
 
                 overlay.style.display = 'block';
                 fullscreenImg.src = img.src;
-                titleElement.textContent = img.dataset.title;
-                descriptionElement.textContent = img.dataset.description;
+
+                if (langMode === 'en') {
+                    titleElement.textContent = titleEN;
+                    descriptionElement.textContent = descEN;
+                } else if (langMode === 'th') {
+                    titleElement.textContent = titleTH;
+                    descriptionElement.textContent = descTH;
+                } else {
+                    titleElement.textContent = `${titleEN} | ${titleTH}`;
+                    descriptionElement.textContent = `${descEN}${descTH ? ' | ' + descTH : ''}`;
+                }
             }
 
             function closeFullscreen() {
