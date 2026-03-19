@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th" data-theme="light" data-lang="both">
+<html lang="th" data-theme="light" data-lang="th">
 
 <head>
     <!-- Favicon -->
@@ -72,13 +72,70 @@
             padding: 2.2rem;
         }
 
-        .top-controls {
+        .settings-wrap {
+            position: relative;
             display: flex;
             justify-content: flex-end;
-            gap: 0.6rem;
             margin-bottom: 1rem;
+            z-index: 200;
+        }
+
+        .settings-toggle {
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text);
+            border-radius: 999px;
+            padding: 0.45rem 0.9rem;
+            cursor: pointer;
+            font: inherit;
+            font-size: 0.88rem;
+            transition: all 0.2s ease;
+        }
+
+        .settings-toggle:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .settings-panel {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            min-width: 280px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.15);
+            padding: 0.8rem;
+            display: none;
+        }
+
+        .settings-panel.open {
+            display: block;
+        }
+
+        .settings-row {
+            display: grid;
+            gap: 0.45rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .settings-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .settings-label {
+            color: var(--text-light);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .settings-options {
+            display: flex;
             flex-wrap: wrap;
-            align-items: center;
+            gap: 0.45rem;
         }
 
         .control-btn {
@@ -502,8 +559,12 @@
                 font-size: 1.25rem;
             }
 
-            .top-controls {
+            .settings-wrap {
                 justify-content: center;
+            }
+
+            .settings-panel {
+                right: auto;
             }
 
             .gallery {
@@ -546,9 +607,12 @@
                 margin-bottom: 0.8rem;
             }
 
-            .top-controls {
+            .settings-wrap {
                 justify-content: flex-start;
-                gap: 0.45rem;
+            }
+
+            .settings-panel {
+                min-width: 250px;
             }
 
             .control-btn {
@@ -673,14 +737,27 @@
 
 <body>
     <div class="container">
-        <div class="top-controls" aria-label="Display controls">
-            <button class="control-btn" type="button" data-theme-btn="light">Light</button>
-            <button class="control-btn" type="button" data-theme-btn="dark">Dark</button>
-            <button class="control-btn" type="button" data-theme-btn="sunset">Sunset</button>
-            <button class="control-btn" type="button" data-theme-btn="auto">Auto</button>
-            <button class="control-btn" type="button" data-lang-btn="th">TH</button>
-            <button class="control-btn" type="button" data-lang-btn="en">EN</button>
-            <button class="control-btn" type="button" data-lang-btn="both">TH/EN</button>
+        <div class="settings-wrap" aria-label="Display controls">
+            <button class="settings-toggle" id="settingsToggle" type="button" aria-expanded="false"
+                aria-controls="settingsPanel">Settings</button>
+            <div class="settings-panel" id="settingsPanel">
+                <div class="settings-row">
+                    <div class="settings-label">Theme</div>
+                    <div class="settings-options">
+                        <button class="control-btn" type="button" data-theme-btn="light">Light</button>
+                        <button class="control-btn" type="button" data-theme-btn="dark">Dark</button>
+                        <button class="control-btn" type="button" data-theme-btn="sunset">Sunset</button>
+                        <button class="control-btn" type="button" data-theme-btn="auto">Auto</button>
+                    </div>
+                </div>
+                <div class="settings-row">
+                    <div class="settings-label">Language</div>
+                    <div class="settings-options">
+                        <button class="control-btn" type="button" data-lang-btn="th">TH</button>
+                        <button class="control-btn" type="button" data-lang-btn="en">EN</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Hero Section -->
         <section class="hero">
@@ -1085,6 +1162,8 @@
             const gallery = document.getElementById('certificateGallery');
             const slides = document.querySelectorAll('.gallery img');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+            const settingsToggle = document.getElementById('settingsToggle');
+            const settingsPanel = document.getElementById('settingsPanel');
 
             function resolveTheme(themeChoice) {
                 if (themeChoice === 'auto') {
@@ -1106,15 +1185,16 @@
                 const actualTheme = resolveTheme(themeChoice);
                 document.documentElement.dataset.theme = actualTheme;
                 localStorage.setItem('portfolio-theme', themeChoice);
-                markActiveButtons(themeChoice, document.documentElement.dataset.lang || 'both');
+                markActiveButtons(themeChoice, document.documentElement.dataset.lang || 'th');
             }
 
             function applyLanguage(lang) {
-                document.documentElement.dataset.lang = lang;
-                document.documentElement.lang = lang === 'en' ? 'en' : 'th';
-                localStorage.setItem('portfolio-lang', lang);
+                const normalizedLang = lang === 'en' ? 'en' : 'th';
+                document.documentElement.dataset.lang = normalizedLang;
+                document.documentElement.lang = normalizedLang;
+                localStorage.setItem('portfolio-lang', normalizedLang);
                 const currentThemeChoice = localStorage.getItem('portfolio-theme') || 'light';
-                markActiveButtons(currentThemeChoice, lang);
+                markActiveButtons(currentThemeChoice, normalizedLang);
             }
 
             function splitBilingualText(htmlText) {
@@ -1168,11 +1248,32 @@
             }
 
             document.querySelectorAll('[data-theme-btn]').forEach((btn) => {
-                btn.addEventListener('click', () => applyTheme(btn.dataset.themeBtn));
+                btn.addEventListener('click', () => {
+                    applyTheme(btn.dataset.themeBtn);
+                    settingsPanel.classList.remove('open');
+                    settingsToggle.setAttribute('aria-expanded', 'false');
+                });
             });
 
             document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
-                btn.addEventListener('click', () => applyLanguage(btn.dataset.langBtn));
+                btn.addEventListener('click', () => {
+                    applyLanguage(btn.dataset.langBtn);
+                    settingsPanel.classList.remove('open');
+                    settingsToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            settingsToggle.addEventListener('click', () => {
+                const willOpen = !settingsPanel.classList.contains('open');
+                settingsPanel.classList.toggle('open', willOpen);
+                settingsToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!settingsPanel.contains(event.target) && !settingsToggle.contains(event.target)) {
+                    settingsPanel.classList.remove('open');
+                    settingsToggle.setAttribute('aria-expanded', 'false');
+                }
             });
 
             prefersDark.addEventListener('change', () => {
@@ -1185,7 +1286,7 @@
             prepareBilingualNodes();
 
             const initialTheme = localStorage.getItem('portfolio-theme') || 'light';
-            const initialLang = localStorage.getItem('portfolio-lang') || 'both';
+            const initialLang = localStorage.getItem('portfolio-lang') || 'th';
             applyTheme(initialTheme);
             applyLanguage(initialLang);
 
@@ -1220,7 +1321,7 @@
                 const fullscreenImg = document.getElementById('fullscreenImage');
                 const titleElement = document.getElementById('certificateTitle');
                 const descriptionElement = document.getElementById('certificateDescription');
-                const langMode = document.documentElement.dataset.lang || 'both';
+                const langMode = document.documentElement.dataset.lang || 'th';
 
                 const titleTH = img.dataset.title || img.alt;
                 const titleEN = img.dataset.titleEn || img.alt;
@@ -1237,8 +1338,8 @@
                     titleElement.textContent = titleTH;
                     descriptionElement.textContent = descTH;
                 } else {
-                    titleElement.textContent = `${titleEN} | ${titleTH}`;
-                    descriptionElement.textContent = `${descEN}${descTH ? ' | ' + descTH : ''}`;
+                    titleElement.textContent = titleTH;
+                    descriptionElement.textContent = descTH;
                 }
             }
 
@@ -1247,7 +1348,11 @@
             }
 
             document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') closeFullscreen();
+                if (e.key === 'Escape') {
+                    closeFullscreen();
+                    settingsPanel.classList.remove('open');
+                    settingsToggle.setAttribute('aria-expanded', 'false');
+                }
             });
         </script>
 </body>
