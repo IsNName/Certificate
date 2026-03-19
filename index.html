@@ -12,12 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6c63ff;
-            --secondary: #f5f3ff;
-            --accent: #8b5cf6;
+            --primary: #2563eb;
+            --secondary: #eff6ff;
+            --accent: #f97316;
             --background: #f8fafc;
-            --text: #334155;
-            --text-light: #64748b;
+            --text: #1f2937;
+            --text-light: #4b5563;
         }
 
         * {
@@ -28,7 +28,9 @@
 
         body {
             font-family: 'Kanit', sans-serif;
-            background-color: var(--background);
+            background: radial-gradient(circle at 10% 10%, #e0f2fe 0%, rgba(224, 242, 254, 0) 35%),
+                radial-gradient(circle at 90% 20%, #ffedd5 0%, rgba(255, 237, 213, 0) 35%),
+                var(--background);
             color: var(--text);
             line-height: 1.6;
         }
@@ -97,7 +99,7 @@
             border: 1px solid #e2e8f0;
             border-radius: 12px;
             padding: 1.5rem;
-            box-shadow: 0 1px 3px rgba(108, 99, 255, 0.1);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
             margin-bottom: 1.2rem;
         }
 
@@ -148,6 +150,8 @@
             font-size: 1.8em;
             color: var(--primary);
             margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 0.7rem;
         }
 
         .skills-grid {
@@ -160,7 +164,8 @@
             background: white;
             padding: 1.5rem;
             border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(108, 99, 255, 0.1);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);
+            border: 1px solid #e2e8f0;
         }
 
         .skill-category h3 {
@@ -188,11 +193,24 @@
             display: flex;
             overflow: hidden;
             background: #fff;
-            box-shadow: 0 1px 3px rgba(108, 99, 255, 0.1);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
             height: 450px;
             align-items: center;
             border-radius: 12px;
             border: 1px solid #e2e8f0;
+        }
+
+        .gallery-counter {
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15, 23, 42, 0.75);
+            color: #fff;
+            font-size: 0.9rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            z-index: 101;
         }
 
         .gallery img {
@@ -252,14 +270,14 @@
             background: #fff;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(108, 99, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
             transition: all 0.3s ease;
             border: 1px solid #e2e8f0;
         }
 
         .project-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
+            transform: translateY(-6px);
+            border-color: var(--accent);
         }
 
         .project-image {
@@ -281,6 +299,7 @@
         .project-description {
             color: var(--text-light);
             margin-bottom: 1rem;
+            font-size: 0.96rem;
         }
 
         .project-tags {
@@ -301,7 +320,7 @@
         .view-project-btn {
             display: inline-block;
             padding: 0.6rem 1.2rem;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), #1d4ed8);
             color: white;
             text-decoration: none;
             border-radius: 6px;
@@ -309,7 +328,7 @@
         }
 
         .view-project-btn:hover {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent), #ea580c);
             transform: translateY(-2px);
         }
 
@@ -397,9 +416,9 @@
                     <p>📧 Email | อีเมล: wasawat.boonporn@gmail.com</p>
                 </div>
                 <p>I am currently studying Computer Science with a strong interest in technology and innovation.
-                    My experience includes coding, AI model training, and web development.
+                    Focused on AI systems and web applications.
                     <br>กำลังศึกษาในสาขาวิทยาการคอมพิวเตอร์ มีความสนใจด้านเทคโนโลยีและนวัตกรรม
-                    โดยมีประสบการณ์ด้านการเขียนโปรแกรม การฝึกโมเดล AI และการพัฒนาเว็บแอปพลิเคชัน</p>
+                    โดยเน้นงานด้าน AI และการพัฒนาเว็บแอปพลิเคชัน</p>
             </div>
         </section>
 
@@ -456,7 +475,7 @@
                     <span class="detail-period">Expected Graduation: April 2026 | คาดว่าจะสำเร็จการศึกษา: เมษายน 2026</span>
                 </div>
                 <p>GPA: 2.93 / 4.0</p>
-                <p><strong>Relevant Coursework | รายวิชาที่เกี่ยวข้อง:</strong> Machine Learning, Artificial Intelligence, NLP, Data Structures &amp; Algorithms, Data Science, BI and DSS</p>
+                <p><strong>Relevant Coursework | รายวิชาที่เกี่ยวข้อง:</strong> Machine Learning, AI, NLP, Data Structures, Algorithms, Data Science</p>
             </div>
         </section>
 
@@ -470,9 +489,9 @@
                     <span class="detail-period">May 2025 - Oct 2025</span>
                 </div>
                 <ul class="detail-list">
-                    <li>Developed real-time elderly fall and bed-exit detection using YOLOv8, MediaPipe, and MiDaS with CCTV RTSP streams | พัฒนาระบบตรวจจับการล้มและลุกจากเตียงแบบเรียลไทม์จากกล้องวงจรปิด</li>
-                    <li>Built a Vue.js monitoring dashboard for live alerts and optimized multi-camera inference performance | พัฒนาแดชบอร์ดแจ้งเตือนสดและปรับประสิทธิภาพการประมวลผลหลายกล้อง</li>
-                    <li>Co-developed a HealthTech prototype selected for grant continuation and presented at Health Tech X2 | ร่วมพัฒนาต้นแบบที่ได้รับคัดเลือกเพื่อต่อยอดทุนและนำเสนอในงาน Health Tech X2</li>
+                    <li>Built real-time fall and bed-exit detection with YOLOv8, MediaPipe, and MiDaS | พัฒนาระบบตรวจจับการล้มและลุกจากเตียงแบบเรียลไทม์</li>
+                    <li>Developed a Vue.js dashboard for live alerts and multi-camera monitoring | พัฒนาแดชบอร์ดแจ้งเตือนสดและติดตามหลายกล้อง</li>
+                    <li>Co-developed a HealthTech prototype presented at Health Tech X2 | ร่วมพัฒนาต้นแบบและนำเสนอในงาน Health Tech X2</li>
                 </ul>
             </div>
 
@@ -482,8 +501,8 @@
                     <span class="detail-period">Oct 2024 - Apr 2025</span>
                 </div>
                 <ul class="detail-list">
-                    <li>Delivered full C/C++ programming instruction for 50+ students per session (memory, pointers, OOP, structs/unions) | สอนการเขียนโปรแกรม C/C++ ให้ผู้เรียนมากกว่า 50 คนต่อคลาส</li>
-                    <li>Reduced assignment failure rate by approximately 25-30% through targeted debugging support and mentoring | ลดอัตรางานไม่ผ่านลงประมาณ 25-30% ผ่านการติวแก้บั๊กและให้คำปรึกษา</li>
+                    <li>Taught core C/C++ programming to 50+ students per session | สอนพื้นฐาน C/C++ ให้ผู้เรียนมากกว่า 50 คนต่อคลาส</li>
+                    <li>Reduced assignment failure rate by 25-30% via debugging support | ลดอัตรางานไม่ผ่าน 25-30% ด้วยการช่วยแก้บั๊กเฉพาะจุด</li>
                 </ul>
             </div>
         </section>
@@ -497,8 +516,8 @@
                     <span class="detail-period">AI Thailand Hackathon 2024 - Honorable Mention | รางวัลชมเชย</span>
                 </div>
                 <ul class="detail-list">
-                    <li>Built a multimodal AI system that converts visual input into natural language speech for visually impaired users | พัฒนาระบบ AI ที่แปลงภาพเป็นเสียงภาษาธรรมชาติ</li>
-                    <li>Integrated LLM, image captioning, STT/TTS, and FastAPI into an end-to-end pipeline | ผสาน LLM, image captioning, STT/TTS และ FastAPI แบบครบกระบวนการ</li>
+                    <li>Built an AI assistant converting visual scenes into speech for visually impaired users | พัฒนาระบบ AI แปลงภาพเป็นเสียงเพื่อช่วยผู้พิการทางสายตา</li>
+                    <li>Integrated LLM, captioning, STT/TTS, and FastAPI in one pipeline | ผสาน LLM, captioning, STT/TTS และ FastAPI ในระบบเดียว</li>
                 </ul>
             </div>
 
@@ -508,8 +527,8 @@
                     <span class="detail-period">Python, MediaPipe, Computer Vision | ไพธอน, มีเดียไปป์, คอมพิวเตอร์วิทัศน์</span>
                 </div>
                 <ul class="detail-list">
-                    <li>Built real-time hand gesture detection for exercise posture correction and injury prevention | พัฒนาระบบตรวจจับท่าทางมือแบบเรียลไทม์เพื่อแก้ท่าออกกำลังกายและป้องกันการบาดเจ็บ</li>
-                    <li>Implemented pose analysis for real-time movement quality feedback | วิเคราะห์ท่าทางเพื่อสะท้อนคุณภาพการเคลื่อนไหวแบบทันที</li>
+                    <li>Built real-time hand gesture detection for exercise posture correction | พัฒนาระบบตรวจจับท่าทางมือแบบเรียลไทม์เพื่อแก้ท่าออกกำลังกาย</li>
+                    <li>Added pose analysis to improve movement quality feedback | เพิ่มการวิเคราะห์ท่าเพื่อสะท้อนคุณภาพการเคลื่อนไหว</li>
                 </ul>
             </div>
         </section>
@@ -518,10 +537,10 @@
         <section class="content-section">
             <h2 class="section-title">Awards &amp; Achievements | รางวัลและความสำเร็จ</h2>
             <ul class="award-list">
-                <li><strong>1st Place - Startup Development Program at Sriracha (2024) | รางวัลที่ 1:</strong> Rising Star Pitching Award for business presentation and product strategy | รางวัลนำเสนอแผนธุรกิจและกลยุทธ์ผลิตภัณฑ์</li>
-                <li><strong>Honorable Mention - AI Thailand Hackathon (2024) | รางวัลชมเชย:</strong> Built vision-assistive AI tools for visually impaired users | พัฒนาเครื่องมือ AI เพื่อช่วยผู้พิการทางสายตา</li>
-                <li><strong>Finalist (Top 18) - Moral Hackathon (2024) | เข้ารอบสุดท้าย:</strong> Developed Office Syndrome posture detection using AI | พัฒนาระบบตรวจท่าทางออฟฟิศซินโดรมด้วย AI</li>
-                <li><strong>Finalist (Top 10) - EEC Hackathon (2024) | เข้ารอบสุดท้าย:</strong> Built AI-powered diabetes detection system with mobile integration | พัฒนาระบบตรวจคัดกรองเบาหวานด้วย AI และเชื่อมต่อมือถือ</li>
+                <li><strong>1st Place - Startup Development Program at Sriracha (2024) | รางวัลที่ 1:</strong> Rising Star Pitching Award</li>
+                <li><strong>Honorable Mention - AI Thailand Hackathon (2024) | รางวัลชมเชย:</strong> Vision-assistive AI tools for visually impaired users</li>
+                <li><strong>Finalist (Top 18) - Moral Hackathon (2024) | เข้ารอบสุดท้าย:</strong> AI posture detection for office syndrome</li>
+                <li><strong>Finalist (Top 10) - EEC Hackathon (2024) | เข้ารอบสุดท้าย:</strong> AI-powered diabetes detection with mobile integration</li>
             </ul>
         </section>
 
@@ -572,9 +591,22 @@
                         data-title="Kasetsart University - Krungthai Joint Certificate in Financial Skills Development"
                         data-description="เข้าร่วมโครงการอบรมทักษะพึงประสงค์ของนิสิต สำหรับงานกลุ่มธุรกิจการเงิน"
                         onclick="openFullscreen(this)" />
+                    <img src="img/certificate-extra-01.jpg" alt="Additional Certificate 01"
+                        data-title="Additional Certificate 01"
+                        data-description="ใบเกียรติบัตรเพิ่มเติม 01"
+                        onclick="openFullscreen(this)" />
+                    <img src="img/certificate-extra-02.jpg" alt="Additional Certificate 02"
+                        data-title="Additional Certificate 02"
+                        data-description="ใบเกียรติบัตรเพิ่มเติม 02"
+                        onclick="openFullscreen(this)" />
+                    <img src="img/cpcup-2025-certificate.jpg" alt="CPCUP 2025 Certificate"
+                        data-title="CPCUP 2025 Certificate"
+                        data-description="Certificate CPCUP 2025"
+                        onclick="openFullscreen(this)" />
                 </div>
                 <button class="prev" onclick="moveSlide(-1)">❮</button>
                 <button class="next" onclick="moveSlide(1)">❯</button>
+                <div class="gallery-counter" id="galleryCounter"></div>
             </div>
         </section>
 
@@ -586,8 +618,7 @@
                     <img src="imgpj/arcade-center.gif" alt="Project 1" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">ARCADE CENTER</h3>
-                        <p class="project-description">พัฒนาระบบรวมเกมARCADE ยุค 90s มารวมกัน มีสามเกมดังนี้ 1. Tetris
-                            2. Snake game 3. Ping Pong game</p>
+                        <p class="project-description">แพลตฟอร์มรวมเกมอาร์เคดยุค 90s ได้แก่ Tetris, Snake และ Ping Pong</p>
                         <div class="project-tags">
                             <span class="tag">javaGUI</span>
                             <span class="tag">AI Generate</span>
@@ -600,8 +631,7 @@
                     <img src="imgpj/yubitang.jpg" alt="Project 2" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">YubiTang</h3>
-                        <p class="project-description">พัฒนาเว็บแอปในการสั่งชาบูมีระบบสมัครเเละล็อกอิน
-                            เลือกเมนูเเละหยิบลงตะกร้าเเละสั่งสินค้า</p>
+                        <p class="project-description">เว็บแอปสั่งชาบูพร้อมระบบสมัครสมาชิก ล็อกอิน จัดการเมนู และตะกร้าสินค้า</p>
                         <div class="project-tags">
                             <span class="tag">Vue.js</span>
                             <span class="tag">PostgreSQL</span>
@@ -615,9 +645,7 @@
                     <img src="imgpj/alzheimers-prevention.gif" alt="Project 3" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">Alzheimer's Prevention Project</h3>
-                        <p class="project-description">พัฒนาเว็บแอปพลิเคชันการออกกำลังกายเพื่อป้องกันโรคอัลไซเมอร์
-                            โดยใช้ MediaPipe สำหรับการตรวจจับการเคลื่อนไหวของร่างกายและการวิเคราะห์อารมณ์ผ่าน Machine
-                            Learning</p>
+                        <p class="project-description">เว็บแอปออกกำลังกายเพื่อป้องกันอัลไซเมอร์ ใช้ MediaPipe และ Machine Learning วิเคราะห์การเคลื่อนไหว</p>
                         <div class="project-tags">
                             <span class="tag">Flask</span>
                             <span class="tag">Python</span>
@@ -666,10 +694,7 @@
                     <img src="imgpj/ai-thailand-hackathon.jpg" alt="Project 6" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">AI Thailand Hackathon 2024</h3>
-                        <p class="project-description">ซึ่งเป็นนิสิตชั้นปีที่ 3 หลักสูตรวิทยาการคอมพิวเตอร์
-                            สามารถคว้ารางวัล ชมเชย มูลค่า 5,000 บาท
-                            สำหรับผลงานที่แสดงถึงความคิดสร้างสรรค์และศักยภาพในการใช้ AI เพื่อสร้างนวัตกรรมใหม่ ๆ
-                            ที่ตอบโจทย์การใช้งานจริง</p>
+                        <p class="project-description">ผลงานรางวัลชมเชย AI Thailand Hackathon 2024 เน้นการประยุกต์ AI เพื่อแก้ปัญหาใช้งานจริง</p>
                         <div class="project-tags">
                             <span class="tag">API</span>
                             <span class="tag">FastAPI</span>
@@ -683,11 +708,7 @@
                     <img src="imgpj/sci-achievement.jpg" alt="Project 7" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">สร้างชื่อเสียงให้กับคณะวิทยาศาสตร์ ศรีราชา</h3>
-                        <p class="project-description">รับรางวัลเชิดชูเกียรติให้แก่อาจารย์และบุคลากร
-                            นิสิตปัจจุบันที่สร้างชื่อเสียงให้กับมหาวิทยาลัยในด้านต่าง ๆ
-                            ศิษย์เก่าดีเด่นจากทุกสาขาวิชาฯ และบริษัท ไทยออยล์ จำกัด
-                            (มหาชน)ในฐานะพันธมิตรของคณะที่ได้สร้างคุณประโยชน์และชื่อเสียงให้แก่คณะวิทยาศาสตร์ ศรีราชา
-                        </p>
+                        <p class="project-description">ได้รับรางวัลเชิดชูเกียรติในโอกาสครบรอบ 29 ปี คณะวิทยาศาสตร์ ศรีราชา</p>
                         <div class="project-tags">
                             <span class="tag">22 มกราคม 2567</span>
                             <span class="tag">ครบรอบ 29 ปี</span>
@@ -701,12 +722,10 @@
                     <img src="imgpj/KAYA-AI.png" alt="Project 8" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">KAYA - AI Fitness App</h3>
-                        <p class="project-description">KAYA คือแอปฟิตเนสอัจฉริยะที่รวม AI เข้ากับการออกกำลังกายแบบครบวงจร:
-                            วิเคราะห์ท่าออกกำลังกายแบบเรียลไทม์ด้วย AI (Pose Detection), เชื่อมมือถือกับจอใหญ่เพื่อคุมการฝึกข้ามอุปกรณ์,
-                            มี AI Coach, ติดตามโภชนาการ, ระบบเกม (เหรียญ/ชาเลนจ์/สตรีค), ล็อกอินผ่าน LINE และเก็บข้อมูลบน Firebase,
-                            พร้อมรองรับทั้งภาษาไทยและอังกฤษ.
-                            <br>One-line summary: KAYA is a personal AI fitness assistant that helps users train with
-                            correct form, stay motivated through gamification, and track health progress in one app.</p>
+                        <p class="project-description">KAYA คือผู้ช่วยออกกำลังกายส่วนตัวที่ใช้ AI วิเคราะห์ท่าแบบเรียลไทม์,
+                            เชื่อมต่อข้ามอุปกรณ์, มี AI Coach, ระบบโภชนาการ และเกมมิฟิเคชัน พร้อมรองรับ TH/EN.
+                            <br>KAYA is an AI-powered personal fitness assistant for correct form, motivation, and
+                            all-in-one health tracking.</p>
                         <div class="project-tags">
                             <span class="tag">AI Fitness</span>
                             <span class="tag">Pose Detection</span>
@@ -745,12 +764,23 @@
                 slides.forEach((slide, index) => {
                     slide.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
                 });
+
+                updateCounter();
             }
 
             slides.forEach((slide, index) => {
                 slide.style.transform = `translateX(${index * 100}%)`;
                 slide.style.position = 'absolute';
             });
+
+            function updateCounter() {
+                const counter = document.getElementById('galleryCounter');
+                if (counter) {
+                    counter.textContent = `${currentIndex + 1} / ${slides.length}`;
+                }
+            }
+
+            updateCounter();
 
             function openFullscreen(img) {
                 const overlay = document.getElementById('fullscreenOverlay');
