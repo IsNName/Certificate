@@ -3,8 +3,8 @@
 
 <head>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="imguser\17a95061-8c58-4014-9277-79a46034bd3b.jpg">
-    <link rel="icon" type="image/x-icon" href="imguser\17a95061-8c58-4014-9277-79a46034bd3b.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="imguser/profile.jpg">
+    <link rel="icon" type="image/x-icon" href="imguser/profile.jpg">
     <!-- สำหรับเบราว์เซอร์เก่า -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,6 +86,62 @@
         /* Skills Section */
         .skills-section {
             margin: 4rem 0;
+        }
+
+        .content-section {
+            margin: 4rem 0;
+        }
+
+        .detail-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(108, 99, 255, 0.1);
+            margin-bottom: 1.2rem;
+        }
+
+        .detail-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.7rem;
+        }
+
+        .detail-title h3 {
+            font-size: 1.1em;
+            color: var(--text);
+        }
+
+        .detail-period {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+
+        .detail-list {
+            list-style-position: inside;
+            color: var(--text-light);
+        }
+
+        .detail-list li {
+            margin: 0.35rem 0;
+        }
+
+        .award-list {
+            list-style: none;
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .award-list li {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 0.9rem 1rem;
+            color: var(--text);
         }
 
         .section-title {
@@ -313,6 +369,11 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+
+            .detail-title {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
 
         .certificate-description {
@@ -327,29 +388,27 @@
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
-            <img src="imguser\17a95061-8c58-4014-9277-79a46034bd3b.jpg" alt="Wasawat Boonporn" class="profile-image">
+            <img src="imguser/profile.jpg" alt="Wasawat Boonporn" class="profile-image">
             <div class="hero-content">
                 <h1 class="hero-title">WASAWAT BOONPORN</h1>
-                <h2 class="hero-subtitle">Bachelor of Science in Computer Science</h2>
+                <h2 class="hero-subtitle">Bachelor of Science in Computer Science | วิทยาศาสตรบัณฑิต สาขาวิทยาการคอมพิวเตอร์</h2>
                 <div class="contact-info">
-                    <p>📱 Phone: +6692-959-3931</p>
-                    <p>📧 Email: wasawat.boonporn@gmail.com</p>
-                    <p>📍 Address: 153 Soi Rangsit-Nakhon Nayok 4, Tambon Prachathipat, Amphoe Thanyaburi, Pathum Thani
-                        12130</p>
+                    <p>📱 Phone | โทร: +6692-959-3931</p>
+                    <p>📧 Email | อีเมล: wasawat.boonporn@gmail.com</p>
                 </div>
-                <p>I am currently studying in the field of Computer Science with a strong interest in technology and
-                    innovation. My background and experience include coding, AI model training, and web development. I
-                    am eager to apply my knowledge to real-world projects and continue learning in a diverse work
-                    environment.</p>
+                <p>I am currently studying Computer Science with a strong interest in technology and innovation.
+                    My experience includes coding, AI model training, and web development.
+                    <br>กำลังศึกษาในสาขาวิทยาการคอมพิวเตอร์ มีความสนใจด้านเทคโนโลยีและนวัตกรรม
+                    โดยมีประสบการณ์ด้านการเขียนโปรแกรม การฝึกโมเดล AI และการพัฒนาเว็บแอปพลิเคชัน</p>
             </div>
         </section>
 
         <!-- Skills Section -->
         <section class="skills-section">
-            <h2 class="section-title">Skills</h2>
+            <h2 class="section-title">Skills | ทักษะ</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Programming Languages</h3>
+                    <h3>Programming Languages | ภาษาโปรแกรม</h3>
                     <ul class="skill-list">
                         <li>C</li>
                         <li>Python</li>
@@ -358,7 +417,7 @@
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Web Development</h3>
+                    <h3>Web Development | พัฒนาเว็บ</h3>
                     <ul class="skill-list">
                         <li>Vue.js</li>
                         <li>Flask</li>
@@ -368,7 +427,7 @@
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>AI & Machine Learning</h3>
+                    <h3>AI & Machine Learning | ปัญญาประดิษฐ์และการเรียนรู้ของเครื่อง</h3>
                     <ul class="skill-list">
                         <li>Machine Learning</li>
                         <li>Deep Learning</li>
@@ -376,7 +435,7 @@
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Soft Skills</h3>
+                    <h3>Soft Skills | ทักษะการทำงานร่วมกัน</h3>
                     <ul class="skill-list">
                         <li>Critical Thinking</li>
                         <li>Problem-Solving</li>
@@ -388,50 +447,128 @@
             </div>
         </section>
 
+        <!-- Education Section -->
+        <section class="content-section">
+            <h2 class="section-title">Education | การศึกษา</h2>
+            <div class="detail-card">
+                <div class="detail-title">
+                    <h3>Kasetsart University Sriracha Campus, B.S. in Computer Science | มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตศรีราชา วท.บ. วิทยาการคอมพิวเตอร์</h3>
+                    <span class="detail-period">Expected Graduation: April 2026 | คาดว่าจะสำเร็จการศึกษา: เมษายน 2026</span>
+                </div>
+                <p>GPA: 2.93 / 4.0</p>
+                <p><strong>Relevant Coursework | รายวิชาที่เกี่ยวข้อง:</strong> Machine Learning, Artificial Intelligence, NLP, Data Structures &amp; Algorithms, Data Science, BI and DSS</p>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section class="content-section">
+            <h2 class="section-title">Work Experience | ประสบการณ์ทำงาน</h2>
+
+            <div class="detail-card">
+                <div class="detail-title">
+                    <h3>V89 Technology - Software Engineering Intern (Bangkok, Thailand) | นักศึกษาฝึกงานวิศวกรรมซอฟต์แวร์</h3>
+                    <span class="detail-period">May 2025 - Oct 2025</span>
+                </div>
+                <ul class="detail-list">
+                    <li>Developed real-time elderly fall and bed-exit detection using YOLOv8, MediaPipe, and MiDaS with CCTV RTSP streams | พัฒนาระบบตรวจจับการล้มและลุกจากเตียงแบบเรียลไทม์จากกล้องวงจรปิด</li>
+                    <li>Built a Vue.js monitoring dashboard for live alerts and optimized multi-camera inference performance | พัฒนาแดชบอร์ดแจ้งเตือนสดและปรับประสิทธิภาพการประมวลผลหลายกล้อง</li>
+                    <li>Co-developed a HealthTech prototype selected for grant continuation and presented at Health Tech X2 | ร่วมพัฒนาต้นแบบที่ได้รับคัดเลือกเพื่อต่อยอดทุนและนำเสนอในงาน Health Tech X2</li>
+                </ul>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-title">
+                    <h3>Kasetsart University Sriracha - Teaching Assistant (C/C++) | ผู้ช่วยสอน (C/C++)</h3>
+                    <span class="detail-period">Oct 2024 - Apr 2025</span>
+                </div>
+                <ul class="detail-list">
+                    <li>Delivered full C/C++ programming instruction for 50+ students per session (memory, pointers, OOP, structs/unions) | สอนการเขียนโปรแกรม C/C++ ให้ผู้เรียนมากกว่า 50 คนต่อคลาส</li>
+                    <li>Reduced assignment failure rate by approximately 25-30% through targeted debugging support and mentoring | ลดอัตรางานไม่ผ่านลงประมาณ 25-30% ผ่านการติวแก้บั๊กและให้คำปรึกษา</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section class="content-section">
+            <h2 class="section-title">Projects (Selected) | โครงการเด่น</h2>
+            <div class="detail-card">
+                <div class="detail-title">
+                    <h3>Vision Assistant for the Blind | ผู้ช่วยการมองเห็นสำหรับผู้พิการทางสายตา</h3>
+                    <span class="detail-period">AI Thailand Hackathon 2024 - Honorable Mention | รางวัลชมเชย</span>
+                </div>
+                <ul class="detail-list">
+                    <li>Built a multimodal AI system that converts visual input into natural language speech for visually impaired users | พัฒนาระบบ AI ที่แปลงภาพเป็นเสียงภาษาธรรมชาติ</li>
+                    <li>Integrated LLM, image captioning, STT/TTS, and FastAPI into an end-to-end pipeline | ผสาน LLM, image captioning, STT/TTS และ FastAPI แบบครบกระบวนการ</li>
+                </ul>
+            </div>
+
+            <div class="detail-card">
+                <div class="detail-title">
+                    <h3>Neuro Safe Zone - Hand Gesture Detection | ระบบตรวจจับท่าทางมือ</h3>
+                    <span class="detail-period">Python, MediaPipe, Computer Vision | ไพธอน, มีเดียไปป์, คอมพิวเตอร์วิทัศน์</span>
+                </div>
+                <ul class="detail-list">
+                    <li>Built real-time hand gesture detection for exercise posture correction and injury prevention | พัฒนาระบบตรวจจับท่าทางมือแบบเรียลไทม์เพื่อแก้ท่าออกกำลังกายและป้องกันการบาดเจ็บ</li>
+                    <li>Implemented pose analysis for real-time movement quality feedback | วิเคราะห์ท่าทางเพื่อสะท้อนคุณภาพการเคลื่อนไหวแบบทันที</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="content-section">
+            <h2 class="section-title">Awards &amp; Achievements | รางวัลและความสำเร็จ</h2>
+            <ul class="award-list">
+                <li><strong>1st Place - Startup Development Program at Sriracha (2024) | รางวัลที่ 1:</strong> Rising Star Pitching Award for business presentation and product strategy | รางวัลนำเสนอแผนธุรกิจและกลยุทธ์ผลิตภัณฑ์</li>
+                <li><strong>Honorable Mention - AI Thailand Hackathon (2024) | รางวัลชมเชย:</strong> Built vision-assistive AI tools for visually impaired users | พัฒนาเครื่องมือ AI เพื่อช่วยผู้พิการทางสายตา</li>
+                <li><strong>Finalist (Top 18) - Moral Hackathon (2024) | เข้ารอบสุดท้าย:</strong> Developed Office Syndrome posture detection using AI | พัฒนาระบบตรวจท่าทางออฟฟิศซินโดรมด้วย AI</li>
+                <li><strong>Finalist (Top 10) - EEC Hackathon (2024) | เข้ารอบสุดท้าย:</strong> Built AI-powered diabetes detection system with mobile integration | พัฒนาระบบตรวจคัดกรองเบาหวานด้วย AI และเชื่อมต่อมือถือ</li>
+            </ul>
+        </section>
+
         <!-- Certificates Section -->
         <section>
-            <h2 class="section-title">Certificates</h2>
+            <h2 class="section-title">Certificates | เกียรติบัตร</h2>
             <div class="gallery-container">
                 <div class="gallery" id="certificateGallery">
-                    <img src="img\0001.jpg" alt="Smart Chat Bot with Google Sheet"
+                    <img src="img/smart-chatbot-google-sheet.jpg" alt="Smart Chat Bot with Google Sheet"
                         data-title="ได้ผ่านอบรมSmart Chat Bot with Google Sheet"
                         data-description="เกียรติบัตรการอบรมเชิงปฏิบัติการด้านการวิเคราะห์ข้อมูล"
                         onclick="openFullscreen(this)" />
-                    <img src="img\0002.jpg" alt="Data Management and Analytics Microsoft Excel"
+                    <img src="img/data-management-microsoft-excel.jpg" alt="Data Management and Analytics Microsoft Excel"
                         data-title="Data Management and Analytics Microsoft Excel"
                         data-description="ผ่านการอบรมData Management and Analytics Microsoft Excel"
                         onclick="openFullscreen(this)" />
-                    <img src="img\0003.jpg" alt="The Use of Onedrive and Microsoft Form Workflow Automation"
-                        data-title="The Use of Onedrive and Microsoft Form Workflow Automation"
-                        data-description="ผ่านการอบรมThe Use of Onedrive and Microsoft Form Workflow Automation"
+                    <img src="img/onedrive-microsoft-form-workflow.jpg" alt="The Use of OneDrive and Microsoft Form Workflow Automation"
+                        data-title="The Use of OneDrive and Microsoft Form Workflow Automation"
+                        data-description="ผ่านการอบรม The Use of OneDrive and Microsoft Form Workflow Automation"
                         onclick="openFullscreen(this)" />
-                    <img src="img\0004.jpg" alt="APIs on Shelf Hackathon 2024" data-title="APIs on Shelf Hackathon 2024"
+                    <img src="img/api-on-shelf-hackathon-participation.jpg" alt="APIs on Shelf Hackathon 2024" data-title="APIs on Shelf Hackathon 2024"
                         data-description="เข้าร่วมAPIs on Shelf Hackathon" onclick="openFullscreen(this)" />
-                    <img src="img\0005.jpg" alt="APIs on Shelf Hackathon 2024" data-title="APIs on Shelf Hackathon 2024"
+                    <img src="img/api-on-shelf-hackathon-honorable-mention.jpg" alt="APIs on Shelf Hackathon 2024" data-title="APIs on Shelf Hackathon 2024"
                         data-description="ได้รางวัลชมเชย" onclick="openFullscreen(this)" />
-                    <img src="img\0006.jpg" alt="Mathlabe R Languages" data-title="Mathlabe R Languages"
-                        data-description="ผ่านการฝึกใช้ภาษาR" onclick="openFullscreen(this)" />
-                    <img src="img\0007.jpg" alt="Startup Development Program at Sriracha"
+                    <img src="img/matlab-r-languages-training.jpg" alt="MATLAB &amp; R Languages" data-title="MATLAB &amp; R Languages"
+                        data-description="ผ่านการฝึกใช้ภาษา R" onclick="openFullscreen(this)" />
+                    <img src="img/startup-development-program-first-place.jpg" alt="Startup Development Program at Sriracha"
                         data-title="Startup Development Program at Sriracha"
                         data-description="ได้ รางวัลที่ 1 จากการพัฒนาสตาร์ทอัพที่มีศักยภาพเปลี่ยนแปลงตลาด"
                         onclick="openFullscreen(this)" />
-                    <img src="img\0008.jpg" alt="EEC Hackathon (KUSRC & DEPA)" data-title="EEC Hackathon (KUSRC & DEPA)"
-                        data-description="Finalist (Top 10)" ongclick="openFullscreen(this)" />
-                    <img src="img\0009.jpg" alt="Network Cabling of Engineer" data-title="Network Cabling of Engineer"
+                    <img src="img/eec-hackathon-top10-finalist.jpg" alt="EEC Hackathon (KUSRC & DEPA)" data-title="EEC Hackathon (KUSRC & DEPA)"
+                        data-description="Finalist (Top 10)" onclick="openFullscreen(this)" />
+                    <img src="img/network-cabling-engineer-workshop.jpg" alt="Network Cabling of Engineer" data-title="Network Cabling of Engineer"
                         data-description="เกียรติบัตรการอบรมเชิงปฏิบัติการด้าน Network Cabling of Engineer"
                         onclick="openFullscreen(this)" />
-                    <img src="img\0010.jpg" alt="Web Development" data-title="กีฬาวิทยากสัมพันธ์"
+                    <img src="img/science-sport-basketball-runner-up.jpg" alt="Web Development" data-title="กีฬาวิทยากสัมพันธ์"
                         data-description="รางวัลรองชนะเลิศอันดับ1 บาสเก็ตบอล" onclick="openFullscreen(this)" />
-                    <img src="img\0011.jpg" alt="ICDL Digital Challenge 2024 (ระดับประเทศ)"
+                    <img src="img/icdl-digital-challenge-2024.jpg" alt="ICDL Digital Challenge 2024 (ระดับประเทศ)"
                         data-title="ICDL Digital Challenge 2024 (ระดับประเทศ)"
                         data-description="ผ่านเข้ารอบICDL Digital Challenge 2024" onclick="openFullscreen(this)" />
-                    <img src="img\0012.jpg" alt="สร้างชื่อเสียงให้กับคณะวิทยาศาสตร์ ศรีราชา"
+                    <img src="img/sci-faculty-recognition-award.jpg" alt="สร้างชื่อเสียงให้กับคณะวิทยาศาสตร์ ศรีราชา"
                         data-title="สร้างชื่อเสียงให้กับคณะวิทยาศาสตร์ ศรีราชา"
-                        data-description="ผ่านเข้ารอบICDL Digital Challenge 2024" onclick="openFullscreen(this)" />
-                    <img src="img\0013.jpg" alt="ICDL Digital Challenge 2024 (ระดับประเทศ)"
-                        data-title="Moral HACKATHON 2024 (ระดับประเทศ)"
-                        data-description="ผ่านเข้ารอบMoral HACKATHON 2024" onclick="openFullscreen(this)" />
-                    <img src="img\0014.jpg" alt="ICDL Digital Challenge 2024 (ระดับประเทศ)"
+                        data-description="เกียรติบัตรสร้างชื่อเสียงให้กับคณะวิทยาศาสตร์ ศรีราชา" onclick="openFullscreen(this)" />
+                    <img src="img/moral-hackathon-2024-finalist.jpg" alt="Moral Hackathon 2024 (ระดับประเทศ)"
+                        data-title="Moral Hackathon 2024 (ระดับประเทศ)"
+                        data-description="ผ่านเข้ารอบ Moral Hackathon 2024" onclick="openFullscreen(this)" />
+                    <img src="img/krungthai-financial-skills-certificate.jpg" alt="Kasetsart University - Krungthai Joint Certificate in Financial Skills Development"
                         data-title="Kasetsart University - Krungthai Joint Certificate in Financial Skills Development"
                         data-description="เข้าร่วมโครงการอบรมทักษะพึงประสงค์ของนิสิต สำหรับงานกลุ่มธุรกิจการเงิน"
                         onclick="openFullscreen(this)" />
@@ -443,10 +580,10 @@
 
         <!-- Projects Section -->
         <section class="projects-section">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title">Projects | ผลงาน</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="imgpj\bg_1.gif" alt="Project 1" class="project-image">
+                    <img src="imgpj/arcade-center.gif" alt="Project 1" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">ARCADE CENTER</h3>
                         <p class="project-description">พัฒนาระบบรวมเกมARCADE ยุค 90s มารวมกัน มีสามเกมดังนี้ 1. Tetris
@@ -460,39 +597,39 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="imgpj\YubiTang.jpg" alt="Project 2" class="project-image">
+                    <img src="imgpj/yubitang.jpg" alt="Project 2" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">YubiTang</h3>
                         <p class="project-description">พัฒนาเว็บแอปในการสั่งชาบูมีระบบสมัครเเละล็อกอิน
                             เลือกเมนูเเละหยิบลงตะกร้าเเละสั่งสินค้า</p>
                         <div class="project-tags">
                             <span class="tag">Vue.js</span>
-                            <span class="tag">PosgreSQL</span>
-                            <span class="tag">Restful Api</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">RESTful API</span>
                             <span class="tag">Website</span>
                         </div>
                         <a href="https://github.com/IsNName/YubiTang" class="view-project-btn">ดูรายละเอียด</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="imgpj\Ex_az.gif" alt="Project 3" class="project-image">
+                    <img src="imgpj/alzheimers-prevention.gif" alt="Project 3" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">Alzheimer's Prevention Project</h3>
                         <p class="project-description">พัฒนาเว็บแอปพลิเคชันการออกกำลังกายเพื่อป้องกันโรคอัลไซเมอร์
-                            โดยใช้ Mediapipe สำหรับการตรวจจับการเคลื่อนไหวของร่างกายและการวิเคราะห์อารมณ์ผ่าน Machine
+                            โดยใช้ MediaPipe สำหรับการตรวจจับการเคลื่อนไหวของร่างกายและการวิเคราะห์อารมณ์ผ่าน Machine
                             Learning</p>
                         <div class="project-tags">
                             <span class="tag">Flask</span>
                             <span class="tag">Python</span>
-                            <span class="tag">Mediapipe</span>
-                            <span class="tag">Wed App</span>
+                            <span class="tag">MediaPipe</span>
+                            <span class="tag">Web App</span>
                         </div>
                         <a href="https://github.com/itzdeenzxx/Alzheimer_detection"
                             class="view-project-btn">ดูรายละเอียด</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="imgpj\Screenshot 2025-01-08 234824.jpg" alt="Project 4" class="project-image">
+                    <img src="imgpj/fruit-classification.jpg" alt="Project 4" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">Fruit Classification</h3>
                         <p class="project-description">สร้างโมเดล Machine Learning ด้วย Convolutional Neural Networks
@@ -509,7 +646,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="imgpj\472234664_921477503503013_2688974251234533341_n.png" alt="Project 5"
+                    <img src="imgpj/sense-vision-assistant.png" alt="Project 5"
                         class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">Sense Vision Assistant</h3>
@@ -518,7 +655,7 @@
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">API</span>
-                            <span class="tag">Fast API</span>
+                            <span class="tag">FastAPI</span>
                             <span class="tag">Web App</span>
                         </div>
                         <a href="https://github.com/itzdeenzxx/aiforthai_blindeyes"
@@ -526,7 +663,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="imgpj\Api.jpg" alt="Project 6" class="project-image">
+                    <img src="imgpj/ai-thailand-hackathon.jpg" alt="Project 6" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">AI Thailand Hackathon 2024</h3>
                         <p class="project-description">ซึ่งเป็นนิสิตชั้นปีที่ 3 หลักสูตรวิทยาการคอมพิวเตอร์
@@ -535,7 +672,7 @@
                             ที่ตอบโจทย์การใช้งานจริง</p>
                         <div class="project-tags">
                             <span class="tag">API</span>
-                            <span class="tag">Fast API</span>
+                            <span class="tag">FastAPI</span>
                             <span class="tag">AI Thailand Hackathon 2024</span>
                         </div>
                         <a href="https://www.csi-kusrc.tech/-ai-thailand-hackathon-2024-ep2-ai-for-thai-api-on-shelf"
@@ -543,7 +680,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="imgpj\SCI.jpg" alt="Project 7" class="project-image">
+                    <img src="imgpj/sci-achievement.jpg" alt="Project 7" class="project-image">
                     <div class="project-content">
                         <h3 class="project-title">สร้างชื่อเสียงให้กับคณะวิทยาศาสตร์ ศรีราชา</h3>
                         <p class="project-description">รับรางวัลเชิดชูเกียรติให้แก่อาจารย์และบุคลากร
@@ -558,6 +695,28 @@
                         </div>
                         <a href="https://www.csi-kusrc.tech/csisrc-students-alumni-scisrc29thest"
                             class="view-project-btn">ดูรายละเอียด</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="imgpj/KAYA-AI.png" alt="Project 8" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">KAYA - AI Fitness App</h3>
+                        <p class="project-description">KAYA คือแอปฟิตเนสอัจฉริยะที่รวม AI เข้ากับการออกกำลังกายแบบครบวงจร:
+                            วิเคราะห์ท่าออกกำลังกายแบบเรียลไทม์ด้วย AI (Pose Detection), เชื่อมมือถือกับจอใหญ่เพื่อคุมการฝึกข้ามอุปกรณ์,
+                            มี AI Coach, ติดตามโภชนาการ, ระบบเกม (เหรียญ/ชาเลนจ์/สตรีค), ล็อกอินผ่าน LINE และเก็บข้อมูลบน Firebase,
+                            พร้อมรองรับทั้งภาษาไทยและอังกฤษ.
+                            <br>One-line summary: KAYA is a personal AI fitness assistant that helps users train with
+                            correct form, stay motivated through gamification, and track health progress in one app.</p>
+                        <div class="project-tags">
+                            <span class="tag">AI Fitness</span>
+                            <span class="tag">Pose Detection</span>
+                            <span class="tag">Cross-Device</span>
+                            <span class="tag">LINE Login</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Bilingual (TH/EN)</span>
+                            <span class="tag">Gamification</span>
+                        </div>
+                        <a href="#" class="view-project-btn">รายละเอียดเพิ่มเติมเร็ว ๆ นี้</a>
                     </div>
                 </div>
             </div>
